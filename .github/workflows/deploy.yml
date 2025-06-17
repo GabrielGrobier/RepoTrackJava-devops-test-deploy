@@ -1,8 +1,10 @@
 name: maquinaJava
 on:
-    push:
-        branches:
-            - main
+    workflow_run:
+        types: [completed]
+        workflows: ["test-java"]
+        branches: [main]
+
 jobs:
     build:
         runs-on: ubuntu-latest
